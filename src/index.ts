@@ -17,7 +17,7 @@ app.post("/api/v1/signup", async (req, res) => {
         });
 
         res.json({
-            message: "User signed up";
+            message: "User signed up"
         })
     } catch (error) {
         res.status(411).json({
