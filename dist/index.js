@@ -13,7 +13,7 @@ app.post("/api/v1/signup", async (req, res) => {
             password: password
         });
         res.json({
-            message: "User signed up",
+            message: "User signed up"
         });
     }
     catch (error) {
