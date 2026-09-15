@@ -7,13 +7,20 @@ app.use(express.json());
 app.post("/api/v1/signup", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    await UserModel.create({
-        username: username,
-        password: password
-    });
-    res.json({
-        message: "User signed up"
-    });
+    try {
+        await UserModel.create({
+            username: username,
+            password: password
+        });
+        res.json({
+            message: "User signed up",
+        });
+    }
+    catch (error) {
+        res.status(411).json({
+            message: "user already exists"
+        });
+    }
 });
 app.post("/api/v1/signin", (req, res) => {
 });

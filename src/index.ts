@@ -21,7 +21,7 @@ app.post("/api/v1/signup", async (req, res) => {
         })
     } catch (error) {
         res.status(411).json({
-            message: "user already exists";
+            message: "user already exists"
         })
     }
 });
