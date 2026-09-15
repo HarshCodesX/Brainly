@@ -1,10 +1,15 @@
+"use strict";
 // Add config, create user models and schema here;
 // mongodb+srv://harsh7562:whoooisharsh@mycluster.pffdh.mongodb.net/
-
-import mongoose {model, Schema} from "mongoose";
-
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserModel = void 0;
+var mongoose = ;
+{
+    model, Schema;
+}
+from;
+"mongoose";
 mongoose.connect("mongodb://localhost:27017/brainly");
-
 const UserSchema = new Schema({
     username: {
         type: String,
@@ -12,5 +17,5 @@ const UserSchema = new Schema({
     },
     Password: String
 });
-
-export const UserModel = model(UserSchema, "User");
+exports.UserModel = model(UserSchema, "User");
+//# sourceMappingURL=db.js.map
