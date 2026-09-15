@@ -1,7 +1,7 @@
 // Add config, create user models and schema here;
 // mongodb+srv://harsh7562:whoooisharsh@mycluster.pffdh.mongodb.net/
 
-import mongoose {model, Schema} from "mongoose";
+import mongoose, { model, Schema } from "mongoose";
 
 mongoose.connect("mongodb://localhost:27017/brainly");
 
@@ -10,7 +10,7 @@ const UserSchema = new Schema({
         type: String,
         unique: true
     },
-    Password: String
+    password: String
 });
 
-export const UserModel = model(UserSchema, "User");
+export const UserModel = model("User", UserSchema);

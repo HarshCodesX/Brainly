@@ -1,8 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import db = require("./db");
-import { UserModel } from "./db";
+import { UserModel } from "./db.js";
 
 const app = express();
 app.use(express.json());

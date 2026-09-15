@@ -1,19 +1,13 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const mongoose_1 = __importDefault(require("mongoose"));
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const db = require("./db");
-const db_1 = require("./db");
-const app = (0, express_1.default)();
-app.use(express_1.default.json());
+import express from "express";
+import mongoose from "mongoose";
+import jwt from "jsonwebtoken";
+import { UserModel } from "./db.js";
+const app = express();
+app.use(express.json());
 app.post("/api/v1/signup", async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
-    await db_1.UserModel.create({
+    await UserModel.create({
         username: username,
         password: password
     });
