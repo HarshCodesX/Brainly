@@ -1,4 +1,4 @@
-import type { NextFunction } from "express";
+import type { NextFunction, Request, Response } from "express";
 import { JWT_PASSWORD } from "./config.js";
 import jwt from "jsonwebtoken";
 
