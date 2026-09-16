@@ -1,8 +1,9 @@
 import express from "express";
 import mongoose from "mongoose";
 import jwt from "jsonwebtoken";
-import { UserModel } from "./db.js";
-const JWT_PASSWORD = "123123";
+import { ContentModel, UserModel } from "./db.js";
+import { JWT_PASSWORD } from "./config.js";
+import { userMiddleware } from "./middleware.js";
 const app = express();
 app.use(express.json());
 app.post("/api/v1/signup", async (req, res) => {
@@ -44,7 +45,19 @@ app.post("/api/v1/signin", async (req, res) => {
         });
     }
 });
-app.post("/api/v1/content", (req, res) => {
+app.post("/api/v1/content", userMiddleware, async (req, res) => {
+    const link = req.body.link;
+    const type = req.body.type;
+    await ContentModel.create({
+        link,
+        type,
+        //@ts-ignore
+        userId: req.userId,
+        tags: []
+    });
+    return res.json({
+        message: "Content added"
+    });
 });
 app.get("/api/v1/content", (req, res) => {
 });
